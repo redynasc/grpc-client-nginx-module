@@ -2,7 +2,7 @@ module github.com/api7/grpc-client-nginx-module
 
 go 1.19
 
-require google.golang.org/grpc v1.24.0
+require google.golang.org/grpc v1.27.0
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
