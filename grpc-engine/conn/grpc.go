@@ -25,7 +25,6 @@ import (
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/metadata"
 )
 
@@ -59,7 +58,8 @@ func Connect(target string, opt *ConnectOption) (*grpc.ClientConn, error) {
 		opts = append(opts, grpc.WithMaxMsgSize(opt.MaxRecvMsgSize))
 	}
 	if opt.Insecure {
-		opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
+		//opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
+		opts = append(opts, grpc.WithInsecure())
 		return grpc.Dial(target, opts...)
 	}
 
